@@ -1,0 +1,25 @@
+- name: Provision Web Servers
+  hosts: webservers
+  tasks:
+
+    - name: install pip3
+      apt:
+        update_cache: yes
+        name: python3-pip
+      become: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+      become: yes
+
+    - name: Start Docker
+      shell: |
+        systemctl start docker
+        systemctl enable docker
+      become: yes
+
+    - name: Run Image
+      shell: |
+        docker run -it -d -e "DATABASE_URL=postgres://USER:PASSWORD@PUBLIC_DOMAIN:PORT/DATABASE" -p 80:8000 scottyfullstack/basic-rest-api
+      become: yes
