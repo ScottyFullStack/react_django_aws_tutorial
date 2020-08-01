@@ -3,8 +3,10 @@ version: '3'
 services:
   web:
     build: .
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c ./entrypoint.sh
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    environment:
+      - DATABASE_URL=postgres://postgres:I2yyrfihDppNaBg0tZSd@mydb.ca6vr9jjlgch.us-east-1.rds.amazonaws.com:5432/local

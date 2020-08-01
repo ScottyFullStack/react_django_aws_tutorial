@@ -12,7 +12,7 @@ class Homepage extends React.Component {
         price: '$'
     }
 
-    DRF_URL = process.env.DRF_URL || 'http://ec2-35-171-151-247.compute-1.amazonaws.com'
+    DRF_URL = process.env.DRF_URL || 'http://ec2-100-26-120-218.compute-1.amazonaws.com'
 
     componentDidMount() {
         axios.get(this.DRF_URL + '/api/')
