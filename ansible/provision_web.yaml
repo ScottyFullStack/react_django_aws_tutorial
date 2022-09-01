@@ -21,7 +21,7 @@
 
     - name: Run Image
       shell: |
-        docker run -it -d -e "DATABASE_URL=postgres://postgres:I2yyrfihDppNaBg0tZSd@mydb.ca6vr9jjlgch.us-east-1.rds.amazonaws.com:5432/postgres" -p 80:8000 scottyfullstack/basic-rest-api
+        docker run -it -d -e "DATABASE_URL=postgres://postgres:I2yyrfihDppNaBg0tZSd@mydb.ca6vr9jjlgch.us-east-1.rds.amazonaws.com:5432/postgres" -p 80:8000 scottyfullstack/basic-rest-api:latest
       become: yes
     
     - name: migrate
